@@ -2,18 +2,18 @@
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333333;
+    background-color: whitesmoke;
+    color: #17517E;
     padding: 20px;
     margin: 0;
 }
 
 /* 容器样式 */
 .container {
-    background-color: white;
+    background-color: #eac9b8af;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px #EAC9B8;
     max-width: 800px;
     margin: 20px auto;
     display: flex;
@@ -38,13 +38,20 @@ select {
     padding: 10px 20px 10px 10px; /* 调整内边距 */
     font-size: 16px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #17517E;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     background: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjQkJCQkJCIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMHB4IiBoZWlnaHQ9IjEwcHgiIHZpZXdCb3g9IjAgMCAxMCAxMCI+PHBhdGggZD0iTTAgMGgxMGwtNSA1eiIvPjwvc3ZnPg==') no-repeat right 10px center;
     background-size: 10px; /* 调整箭头的大小 */
     background-position: right 10px center; /* 调整箭头位置 */
+}
+
+/* 深色模式下的选择框样式 */
+body.dark-mode select {
+    background: #322020a3; /* 深色模式下的背景色 */
+    color: #ECDBD4; /* 深色模式下的文字颜色 */
+    border: 1px solid #ecf0f1; /* 深色模式下的边框颜色 */
 }
 
 /* 按钮样式 */
@@ -56,14 +63,14 @@ button {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background: linear-gradient(135deg, #007bff, #0056b3);
-    color: white;
+    background: linear-gradient(135deg, #6BB2CC, #17517E);
+    color: whitesmoke;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background: linear-gradient(135deg, #0056b3, #004494);
+    background: linear-gradient(135deg, #6BB2CC, #17517E);
     transform: translateY(-2px);
 }
 
@@ -77,6 +84,50 @@ button:active {
     justify-content: center;
     gap: 10px;
     margin-top: 10px;
+}
+
+/* 深色模式样式 */
+body.dark-mode {
+    background-color: #60635f;
+    color: #ecf0f1;
+}
+
+body.dark-mode .container {
+    background-color: #322020a3;  /* 深色模式下的container背景色 */
+    box-shadow: 0 8px 16px #2c3e50;
+    color: #ECDBD4;  /* 容器内文字颜色 */
+}
+
+/* 主题切换按钮样式 */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.theme-toggle img {
+    width: 30px;
+    height: 30px;
+    filter: invert(0); /* 白色图标，用于深色背景 */
+}
+
+body.dark-mode .theme-toggle img {
+    filter: invert(1); /* 黑色图标，用于浅色背景 */
+}
+
+/* 深色模式下的按钮样式 */
+body.dark-mode button {
+    background: linear-gradient(135deg, #ebbba8, #E1563A);
+    color: #ecf0f1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode button:hover {
+    background: linear-gradient(135deg, #ebbba8, #E1563A);
 }
 
 /* 布局更新 */

@@ -8,6 +8,31 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('generateDailyShoutBtn').addEventListener('click', generateDailyShout);
     document.getElementById('copyDailyShoutBtn').addEventListener('click', copyDailyShout);
     document.getElementById('shareDailyShoutBtn').addEventListener('click', shareDailyShout);
+
+    // 深色模式
+    // 主题切换逻辑
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+
+    // 检查localStorage中保存的主题偏好
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-mode');
+        themeIcon.src = 'sun.svg';
+    }
+
+    themeToggleBtn.addEventListener('click', function () {
+        body.classList.toggle('dark-mode');
+
+        // 切换图标
+        if (body.classList.contains('dark-mode')) {
+            themeIcon.src = 'sun.svg'; // 深色模式下的太阳图标
+            themeToggleBtn.style.background = 'none'; // 无背景
+        } else {
+            themeIcon.src = 'moon.svg'; // 浅色模式下的月亮图标
+            themeToggleBtn.style.background = 'none'; // 无背景
+        }
+    });
 });
 
 const expressions = [

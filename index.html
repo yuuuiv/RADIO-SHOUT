@@ -4,13 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>雷迪虾喊话生成器</title>
-    <link rel="icon" href="icon.svg" type="image/svg+xml">
-    <link rel="icon" href="icon.png" type="image/png">
     <link rel="stylesheet" href="style.css">
+    <script>
+        // 页面加载前应用主题
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <h1>雷迪虾喊话生成器</h1>
+        <button id="themeToggle" class="theme-toggle">
+            <img src="moon.svg" alt="切换模式" id="themeIcon">
+        </button>
         
         <!-- 添加说明文字 -->
         <p class="copyright-warning">
