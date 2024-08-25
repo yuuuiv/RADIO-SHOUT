@@ -170,7 +170,7 @@ function generateDailyShout() {
     const randomEvent = events[Math.floor(Math.random() * events.length)];
     const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
 
-    const dailyShoutText = `${randomGreeting} \n ${randomEvent} ${randomEmoji} #レディシャ #Roselia #バンドリ`;
+    const dailyShoutText = `${randomGreeting} \n ${randomEvent} ${randomEmoji} \n #レディシャ #Roselia #バンドリ`;
     document.getElementById('dailyShoutText').innerText = dailyShoutText;
     
     // 显示“复制”按钮
