@@ -1,53 +1,164 @@
+/* 全局样式 */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333333;
+    padding: 20px;
+    margin: 0;
+}
+
+/* 容器样式 */
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* 调整选择框的小箭头位置 */
+select {
+    width: 60%;
+    max-width: 100px;
+    padding: 10px 40px 10px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjQkJCQkJCIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMHB4IiBoZWlnaHQ9IjEwcHgiIHZpZXdCb3g9IjAgMCAxMCAxMCI+PHBhdGggZD0iTTAgMGgxMGwtNSA1eiIvPjwvc3ZnPg==') no-repeat right 10px center;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* 按钮样式 */
+button {
+    padding: 12px 24px;
+    margin: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #0056b3, #004494);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+.button-group {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    margin: 0;
-    padding: 20px;
-    background-color: #f4f4f4;
-}
-
-.container {
-    text-align: center;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 800px;
-}
-
-.section {
-    margin-bottom: 30px;
+    gap: 10px; /* 按钮之间的间距 */
+    margin-top: 10px;
 }
 
 button {
     padding: 10px 20px;
-    margin: 10px;
     font-size: 16px;
-    cursor: pointer;
     border: none;
+    border-radius: 5px;
     background-color: #007bff;
     color: white;
-    border-radius: 5px;
+    cursor: pointer;
 }
 
 button:hover {
     background-color: #0056b3;
 }
 
-p {
+/* 针对直抒胸臆部分的布局 */
+#expressionSection {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+}
+
+#expressionText {
+    flex: 1;
+    margin: 0 10px 0 0;
+    text-align: left;
+}
+
+#generateExpressionBtn {
+    white-space: nowrap;
+}
+
+/* 文本居中样式 */
+#dailyShoutText {
+    text-align: center;
     font-size: 18px;
     margin: 20px 0;
 }
 
-select {
-    width: 70%; 
-    max-width: 100px; 
-    padding: 10px; 
-    font-size: 16px; 
-    border-radius: 5px; 
-    border: 1px solid #ccc; 
+/* 布局更新 */
+.header-with-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* 保持标题和按钮靠左 */
+    gap: 10px; /* 增加标题与按钮之间的间距 */
+}
+
+.header-with-button h2 {
+    margin: 0;
+}
+
+.header-with-button button {
+    white-space: nowrap; /* 防止按钮内文字换行 */
+}
+
+/* 文本居中样式 */
+#expressionText {
+    text-align: center;
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+#expressionText, #dailyShoutText {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#loading {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: #007bff;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+    .header-with-button {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .header-with-button h2 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .header-with-button button {
+        margin: 0 auto;
+    }
 }

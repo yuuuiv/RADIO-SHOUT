@@ -1,6 +1,14 @@
-// 直抒胸臆相关逻辑
-document.getElementById('generateExpressionBtn').addEventListener('click', generateExpression);
-document.getElementById('copyExpressionBtn').addEventListener('click', copyExpression);
+document.addEventListener('DOMContentLoaded', function() {
+    // 直抒胸臆相关逻辑
+    document.getElementById('generateExpressionBtn').addEventListener('click', generateExpression);
+    document.getElementById('copyExpressionBtn').addEventListener('click', copyExpression);
+    document.getElementById('shareExpressionBtn').addEventListener('click', shareExpression);
+
+    // 每日一喊相关逻辑
+    document.getElementById('generateDailyShoutBtn').addEventListener('click', generateDailyShout);
+    document.getElementById('copyDailyShoutBtn').addEventListener('click', copyDailyShout);
+    document.getElementById('shareDailyShoutBtn').addEventListener('click', shareDailyShout);
+});
 
 const expressions = [
     // 这里填入直抒胸臆的文本内容
@@ -99,13 +107,21 @@ const expressions = [
     "#レディシャ 记录了 Roselia 的成长与努力，也见证了我们的陪伴与支持。不希望这个篇章就此画上句号，期待继续聆听 Roselia 的故事！🌹 #Roselia #レディシャ #Roselia #バンドリ"
 ];
 
+// 直抒胸臆相关逻辑
 function generateExpression() {
     const randomIndex = Math.floor(Math.random() * expressions.length);
     const selectedText = expressions[randomIndex];
-    document.getElementById('expressionText').innerText = selectedText;
+    const textElement = document.getElementById('expressionText');
     
-    // 显示“复制”按钮
+    textElement.style.opacity = '0'; // 先隐藏文本
+    setTimeout(() => {
+        textElement.innerText = selectedText;
+        textElement.style.opacity = '1'; // 渐变显示文本
+    }, 200);
+
+    // 显示“复制”和“分享”按钮
     document.getElementById('copyExpressionBtn').style.display = 'inline-block';
+    document.getElementById('shareExpressionBtn').style.display = 'inline-block';
 }
 
 function copyExpression() {
@@ -119,9 +135,11 @@ function copyExpression() {
         });
 }
 
-// 每日一喊相关逻辑
-document.getElementById('generateDailyShoutBtn').addEventListener('click', generateDailyShout);
-document.getElementById('copyDailyShoutBtn').addEventListener('click', copyDailyShout);
+function shareExpression() {
+    const textToShare = document.getElementById('expressionText').innerText;
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(textToShare)}`;
+    window.open(twitterUrl, '_blank');
+}
 
 const greetings = {
     morning: ["おはようございます！", "おはよう！", "おはようございます", "おはよう"],
@@ -164,17 +182,25 @@ const emojis = ["😊", "💪", "✨", "🌟", "🎉", "(;´༎ຶД༎ຶ`)", "
     , "(꒪Д꒪)ノ", "(ノдヽ)ヽ", "(ﾟДﾟ)ﾉ"
 ];
 
+// 每日一喊相关逻辑
 function generateDailyShout() {
     const selectedTime = document.getElementById('greeting').value;
     const randomGreeting = greetings[selectedTime][Math.floor(Math.random() * greetings[selectedTime].length)];
     const randomEvent = events[Math.floor(Math.random() * events.length)];
     const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
 
-    const dailyShoutText = `${randomGreeting} \n ${randomEvent} ${randomEmoji} \n #レディシャ #Roselia #バンドリ`;
-    document.getElementById('dailyShoutText').innerText = dailyShoutText;
+    const dailyShoutText = `${randomGreeting}\n${randomEvent} ${randomEmoji}\n#レディシャ #Roselia #バンドリ`;
+    const textElement = document.getElementById('dailyShoutText');
     
-    // 显示“复制”按钮
+    textElement.style.opacity = '0';
+    setTimeout(() => {
+        textElement.innerText = dailyShoutText;
+        textElement.style.opacity = '1';
+    }, 200);
+
+    // 显示“复制”和“分享”按钮
     document.getElementById('copyDailyShoutBtn').style.display = 'inline-block';
+    document.getElementById('shareDailyShoutBtn').style.display = 'inline-block';
 }
 
 function copyDailyShout() {
@@ -188,23 +214,8 @@ function copyDailyShout() {
         });
 }
 
-
-function generateText() {
-    const randomIndex = Math.floor(Math.random() * texts.length);
-    const selectedText = texts[randomIndex];
-    document.getElementById('displayText').innerText = selectedText;
-    
-    // 显示“复制”按钮
-    document.getElementById('copyBtn').style.display = 'inline-block';
-}
-
-function copyText() {
-    const textToCopy = document.getElementById('displayText').innerText;
-    navigator.clipboard.writeText(textToCopy)
-        .then(() => {
-            alert('文本已复制到剪贴板');
-        })
-        .catch(err => {
-            console.error('复制失败:', err);
-        });
+function shareDailyShout() {
+    const textToShare = document.getElementById('dailyShoutText').innerText;
+    const twitterUrl = `https://x.com/intent/post?text=${encodeURIComponent(textToShare)}`;
+    window.open(twitterUrl, '_blank');
 }
