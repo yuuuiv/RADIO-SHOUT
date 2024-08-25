@@ -47,13 +47,6 @@ select {
     background-position: right 10px center; /* 调整箭头位置 */
 }
 
-/* 深色模式下的选择框样式 */
-body.dark-mode select {
-    background: #322020a3; /* 深色模式下的背景色 */
-    color: #ECDBD4; /* 深色模式下的文字颜色 */
-    border: 1px solid #ecf0f1; /* 深色模式下的边框颜色 */
-}
-
 /* 按钮样式 */
 button {
     padding: 12px 24px;
@@ -128,6 +121,17 @@ body.dark-mode button {
 
 body.dark-mode button:hover {
     background: linear-gradient(135deg, #ebbba8, #E1563A);
+}
+
+/* 深色模式下的选择框样式 */
+body.dark-mode select {
+    background-color: #322020a3; /* 深色模式下的背景色 */
+    color: #ECDBD4; /* 深色模式下的文字颜色 */
+    border: 1px solid #ecf0f1; /* 深色模式下的边框颜色 */
+    background-image: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjZWNmMGYxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMHB4IiBoZWlnaHQ9IjEwcHgiIHZpZXdCb3g9IjAgMCAxMCAxMCI+PHBhdGggZD0iTTAgMGgxMGwtNSA1eiIvPjwvc3ZnPg=='); /* 淡色小箭头 */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
 }
 
 /* 布局更新 */
