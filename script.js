@@ -137,7 +137,7 @@ function copyExpression() {
 
 function shareExpression() {
     const textToShare = document.getElementById('expressionText').innerText;
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(textToShare)}`;
+    const twitterUrl = `https://x.com/intent/post?text=${encodeURIComponent(textToShare)}`;
     window.open(twitterUrl, '_blank');
 }
 

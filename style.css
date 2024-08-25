@@ -16,20 +16,35 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     max-width: 800px;
     margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-/* 调整选择框的小箭头位置 */
+/* 包裹标签和选择框的容器样式 */
+.label-select-container {
+    display: flex;
+    align-items: center; /* 垂直居中对齐 */
+    justify-content: center; /* 水平居中对齐 */
+    gap: 10px; /* 标签和选择框之间的间距 */
+    margin-bottom: 20px; /* 与下方内容保持一定的距离 */
+}
+
+/* 选择框样式 */
 select {
-    width: 60%;
-    max-width: 100px;
-    padding: 10px 40px 10px 10px;
+    width: 100px; /* 增加选择框的宽度 */
+    padding: 10px 20px 10px 10px; /* 调整内边距 */
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    background: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjQkJCQkJCIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMHB4IiBoZWlnaHQ9IjEwcHgiIHZpZXdCb3g9IjAgMCAxMCAxMCI+PHBhdGggZD0iTTAgMGgxMGwtNSA1eiIvPjwvc3ZnPg==') no-repeat right 10px center;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
+    background: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjQkJCQkJCIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMHB4IiBoZWlnaHQ9IjEwcHgiIHZpZXdCb3g9IjAgMCAxMCAxMCI+PHBhdGggZD0iTTAgMGgxMGwtNSA1eiIvPjwvc3ZnPg==') no-repeat right 10px center;
+    background-size: 10px; /* 调整箭头的大小 */
+    background-position: right 10px center; /* 调整箭头位置 */
 }
 
 /* 按钮样式 */
@@ -56,80 +71,32 @@ button:active {
     transform: translateY(1px);
 }
 
+/* 按钮组样式 */
 .button-group {
     display: flex;
     justify-content: center;
-    gap: 10px; /* 按钮之间的间距 */
+    gap: 10px;
     margin-top: 10px;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* 针对直抒胸臆部分的布局 */
-#expressionSection {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-bottom: 30px;
-}
-
-#expressionText {
-    flex: 1;
-    margin: 0 10px 0 0;
-    text-align: left;
-}
-
-#generateExpressionBtn {
-    white-space: nowrap;
-}
-
-/* 文本居中样式 */
-#dailyShoutText {
-    text-align: center;
-    font-size: 18px;
-    margin: 20px 0;
 }
 
 /* 布局更新 */
 .header-with-button {
     display: flex;
+    flex-direction: column; /* 垂直布局 */
     align-items: center;
-    justify-content: flex-start; /* 保持标题和按钮靠左 */
-    gap: 10px; /* 增加标题与按钮之间的间距 */
-}
-
-.header-with-button h2 {
-    margin: 0;
-}
-
-.header-with-button button {
-    white-space: nowrap; /* 防止按钮内文字换行 */
+    gap: 10px; /* 按钮与标题之间的间距 */
 }
 
 /* 文本居中样式 */
-#expressionText {
+#expressionText, #dailyShoutText {
     text-align: center;
     font-size: 18px;
     margin: 20px 0;
-}
-
-#expressionText, #dailyShoutText {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
 
+/* 加载动画 */
 #loading {
     display: inline-block;
     width: 24px;
@@ -148,17 +115,21 @@ button:hover {
 
 /* 响应式设计 */
 @media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        margin: 10px auto;
+    }
+
     .header-with-button {
+        align-items: center;
+    }
+
+    .button-group {
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
     }
 
-    .header-with-button h2 {
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
-    .header-with-button button {
-        margin: 0 auto;
+    select {
+        width: 100%;
     }
 }
