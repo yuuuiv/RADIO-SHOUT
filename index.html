@@ -9,9 +9,28 @@
 <body>
     <div class="container">
         <h1>雷迪虾喊话文本生成器</h1>
-        <button id="generateBtn">生成</button>
-        <p id="displayText">点击生成按钮</p>
-        <button id="copyBtn" style="display: none;">复制</button>
+        
+        <!-- 直抒胸臆部分 -->
+        <div class="section">
+            <h2>直抒胸臆</h2>
+            <button id="generateExpressionBtn">生成直抒胸臆</button>
+            <p id="expressionText"></p>
+            <button id="copyExpressionBtn" style="display: none;">复制</button>
+        </div>
+
+        <!-- 每日一喊部分 -->
+        <div class="section">
+            <h2>每日一喊</h2>
+            <label for="greeting">选择时间段:</label>
+            <select id="greeting">
+                <option value="morning">早上好</option>
+                <option value="afternoon">下午好</option>
+                <option value="evening">晚上好</option>
+            </select>
+            <button id="generateDailyShoutBtn">生成每日一喊</button>
+            <p id="dailyShoutText">点击生成按钮</p>
+            <button id="copyDailyShoutBtn" style="display: none;">复制</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
