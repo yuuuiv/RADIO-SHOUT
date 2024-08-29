@@ -186,5 +186,7 @@ body.dark-mode select {
 
     select {
         width: 100%;
+        min-width: 100px; /* 确保最小宽度为100px */
+        max-width: 100px; /* 确保最大宽度为100px */
     }
 }
